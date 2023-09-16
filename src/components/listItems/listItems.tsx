@@ -1,16 +1,12 @@
 'use client'
-import { ModeContext } from '@/context/index';
+import { Context, ModeContext } from '@/context/index';
 import { ListItems } from '@/data/types/List';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import style from './listItems.module.scss'
 
 export default function ListItems(){
-    const {white,setWhite}=useContext(ModeContext);
-    const [green,setGreen]=useState(false);
-    let ListCopy:ListItems[]=[];
-    for( let i=0;i<localStorage.length;i++ ){
-        ListCopy.push(JSON.parse(localStorage.getItem(`user${i}`)));
-    }
+    const {white}=useContext(ModeContext);
+    const {users}=useContext(Context);
     
     return(
     <div className={`${style.wrapper} ${white ? style.wrapper_white : ''}`}>
@@ -21,10 +17,9 @@ export default function ListItems(){
                 <div>Subscribiyion</div>
                 <div>Employment</div>
             </div>
-            <div className={style.list_area}>
-                {ListCopy.map((item:any,index:number)=>(
-                    <div className={`${style.item} ${green ? style.item_active : ''}`}
-                     key={index} onClick={()=>setGreen(true)}>
+            <div className={style.list_area} >
+                {users.map((item:ListItems,index:number)=>(
+                    <div className={style.item} key={index}>
                         <div className={style.item_atr}>{item.name}</div>
                         <div className={style.item_age}>{item.Age}</div>
                         <div className={style.item_atr}>{item.subscribition}</div>

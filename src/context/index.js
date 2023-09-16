@@ -3,4 +3,4 @@ import { createContext } from "react";
 
 export const ModeContext=createContext();//переключение между белым/черным
 
-//export const Context = createContext<ListItems>([]);
+export const Context = createContext();//бд

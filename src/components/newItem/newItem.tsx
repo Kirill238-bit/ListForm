@@ -1,4 +1,4 @@
-import { ModeContext } from '@/context/index'
+import { Context, ModeContext } from '@/context/index'
 import { ListItems } from '@/data/types/List'
 import { useContext, useState } from 'react'
 import style from './newItem.module.scss'
@@ -9,19 +9,19 @@ export default function NewItem(){
     const [select,setSelector]=useState('')
     const [chek,setChek]=useState('Unemployed')
     const [number,setNumber]=useState(13);
+    const {users,setUsers}=useContext(Context);
     const {white,setWhite}=useContext(ModeContext);
     const [position,setPosition]=useState(0);
-
 
     function addItem(e:any){
         e.preventDefault()
         setNumber(number+1);
 
         if(name===''){
-           return alert("Заполните имя");
+           return alert("Fill the name");
         }
         if(age===''){
-            return alert("Заполните возраст");
+            return alert("Fill the age");
         }
 
         const newUser:ListItems={
@@ -31,19 +31,21 @@ export default function NewItem(){
             employment: chek,
         }
 
-        localStorage.setItem(`user${number}`,JSON.stringify(newUser))
+        setUsers([...users,newUser])
     }
 
     function deleteItem(){
+        let numb=prompt('write the name');
+        setUsers(users.filter((item:ListItems)=> item.name!=numb));
     }
-    function madeMode(){
+
+    function changeMode(){//для анимации
         setWhite(!white);
         setPosition(position+1);
         if(position===1){
             setPosition(0);
         }
     }
-    console.log(localStorage)
     return(
         <div className={`${style.wrapper} ${white ? style.wrapper_white : ''}`}>
             <div className={style.content}>
@@ -64,7 +66,7 @@ export default function NewItem(){
                 </form>
                 <div className={style.buttons_wrapper}>
                     <div className={style.button_mode}>
-                        <div className={style.button_mode_anim} onClick={()=>madeMode()}>
+                        <div className={style.button_mode_anim} onClick={()=>changeMode()}>
                             <div className={style.button_mode_cyrcle} style={{ transform: `translateX(${(position* 100)}%)`}}></div>
                         </div>
                         <div className={style.button_mode_text}>Mode</div>

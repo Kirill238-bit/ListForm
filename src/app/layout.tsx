@@ -1,8 +1,7 @@
 'use client'
 import './globals.css'
-import { List } from '@/data/List'
 import { useState } from 'react'
-import { ModeContext } from '@/context/index.js'
+import { Context, ModeContext } from '@/context/index.js'
 import { ListItems } from '@/data/types/List'
 
 
@@ -17,18 +16,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  //const [users,setUsers]=useState<ListItems[]>([]);
-  const [white,setWhite]=useState(false)
+  const [users,setUsers]=useState<ListItems[]>([]);//бд
+  const [white,setWhite]=useState<boolean>(false);//белая/черная темы
   return (
     <html lang="en">
         <body>
-        {//<Context.Provider value={{users,setUsers}}>
-        }
+        <Context.Provider value={{users,setUsers}}>
         <ModeContext.Provider value={{white,setWhite}}>
           {children}
           </ModeContext.Provider>
-          {//</Context.Provider>
-          }
+          </Context.Provider>
         </body>
     </html>
   )
