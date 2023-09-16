@@ -1,0 +1,31 @@
+.wrapper{
+    border: 1px solid grey;
+    margin:15px;
+    border-radius: 10px;
+    height: 340px;
+}
+
+.content{
+    margin:15px;
+}
+
+.title{
+    background-color: grey;
+    display: flex;
+    justify-content: space-around;
+}
+.list_area{
+    overflow-y: auto;
+}
+.item{
+    display: flex;
+    gap:10px;
+
+    &_atr{
+        width: 150px;
+    }
+
+    &_age{
+        width:80px;
+    }
+}
