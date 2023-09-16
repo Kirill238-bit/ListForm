@@ -7,8 +7,7 @@ import { List } from '@/data/List';
 import style from './page.module.css'
 
 export default function Home() {
-  //const {users,setusers}=useContext(Context);
-  //localStorage.setItem(`users`,JSON.stringify(List))
+
   for(let i=0;i<List.length;i++){
     localStorage.setItem(`user${i}`,JSON.stringify(List[i]))
   }

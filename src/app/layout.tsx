@@ -1,12 +1,10 @@
 'use client'
 import './globals.css'
-import { Inter } from 'next/font/google'
 import { List } from '@/data/List'
 import { useState } from 'react'
-//import { Context } from '@/context/index.js'
+import { ModeContext } from '@/context/index.js'
 import { ListItems } from '@/data/types/List'
 
-const inter = Inter({ subsets: ['latin'] })
 
 const metadata = {
   title: 'List',
@@ -20,12 +18,15 @@ export default function RootLayout({
 }) {
 
   //const [users,setUsers]=useState<ListItems[]>([]);
+  const [white,setWhite]=useState(false)
   return (
     <html lang="en">
-        <body className={inter.className}>
+        <body>
         {//<Context.Provider value={{users,setUsers}}>
         }
+        <ModeContext.Provider value={{white,setWhite}}>
           {children}
+          </ModeContext.Provider>
           {//</Context.Provider>
           }
         </body>

@@ -10,6 +10,10 @@
         padding: 10px;
         border-radius: 10px;
     }
+    &_white{
+        background-color: #fff;
+        color:#000;
+    }
 }
 
 .content{
@@ -24,12 +28,17 @@
     padding-bottom: 10px;
     border-bottom: 1.5px solid grey;
 
+    ::placeholder {
+        color: #fff;
+      }
+
     input{
         width: 220px;
         background-color: grey;
         color:#fff;
         padding: 5px;
         border-radius: 10px;
+
     }
 
     select{
@@ -76,5 +85,7 @@
         height: 15px;
         background-color: black;
         border-radius: 50%;
+        transition: 0.5s;
     }
 }
+

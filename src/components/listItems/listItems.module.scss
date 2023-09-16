@@ -2,7 +2,13 @@
     border: 1px solid grey;
     margin:15px;
     border-radius: 10px;
-    height: 340px;
+    height: 315px;
+    overflow-y: auto;
+
+    &_white{
+        background-color: #fff;
+        color:#000;
+    }
 }
 
 .content{
@@ -14,12 +20,11 @@
     display: flex;
     justify-content: space-around;
 }
-.list_area{
-    overflow-y: auto;
-}
+
 .item{
     display: flex;
     gap:10px;
+    cursor: pointer;
 
     &_atr{
         width: 150px;
