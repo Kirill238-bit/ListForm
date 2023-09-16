@@ -1,0 +1,80 @@
+.wrapper{
+    border: 1px solid grey;
+    margin:15px 15px 15px 15px;
+    border-radius: 10px;
+
+    button{
+        width: 230px;
+        color:#fff;
+        background-color: grey;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+.content{
+    padding:15px;
+}
+
+.form{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:10px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid grey;
+
+    input{
+        width: 220px;
+        background-color: grey;
+        color:#fff;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    select{
+        margin-left: 3px;
+        width: 230px;
+        background-color: grey;
+        color:#fff;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    .checkbox{
+        width: 230px;
+        display: flex;
+        input{
+            width: 15px;
+            border:1.5px solid;
+            border-color: green;
+        }
+    }
+    
+}
+
+.buttons_wrapper{
+    padding-top: 15px;
+    
+}
+
+.button_mode{
+    margin-bottom: 10px;
+    display: flex;
+    gap:10px;
+
+    &_anim{
+        border: 1.5px solid green;
+        width: 30px;
+        height: 15px;
+        border-radius: 16px;
+        background-color: green;
+    }
+
+    &_cyrcle{
+        width: 15px;
+        height: 15px;
+        background-color: black;
+        border-radius: 50%;
+    }
+}
